@@ -1,0 +1,4 @@
+com\museumofcandy\controller\CandyController.class
+com\museumofcandy\config\SecurityConfig.class
+com\museumofcandy\config\AppConfig.class
+com\museumofcandy\config\MySpringMvcDispatcherServletInitializer.class
