@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -28,9 +29,12 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 @EnableWebMvc
 @EnableTransactionManagement
 @ComponentScan(basePackages="com.museumofcandy")
-@PropertySource({ "classpath:/persistence-mysql.properties" })
+@PropertySources({ 
+	@PropertySource("classpath:/persistence-mysql.properties"),
+	@PropertySource(value = "${ws.properties}", ignoreResourceNotFound = true)
+})
 public class AppConfig implements WebMvcConfigurer {
-
+	
 	@Autowired
 	private Environment env;
 	
@@ -38,6 +42,9 @@ public class AppConfig implements WebMvcConfigurer {
 
 	@Bean
 	public ViewResolver viewResolver() {
+		
+		System.out.print(System.getProperty("java.class.path"));
+
 		
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 		
