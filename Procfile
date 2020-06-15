@@ -1,3 +1,3 @@
-web: java -jar target/museum-of-candy-0.0.1-SNAPSHOT.war
+java -jar target/dependency/webapp-runner.jar target/*.war
 
 
