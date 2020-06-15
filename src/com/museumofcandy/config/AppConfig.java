@@ -31,7 +31,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 @ComponentScan(basePackages="com.museumofcandy")
 @PropertySources({ 
 	@PropertySource("classpath:/persistence-mysql.properties"),
-	@PropertySource(value = "${ws.persistence-mysql.properties}", ignoreResourceNotFound = true)
+	@PropertySource(value = "${System:${classpath}/persistence-mysql.properties}", ignoreResourceNotFound = true)
 })
 public class AppConfig implements WebMvcConfigurer {
 	
