@@ -136,6 +136,16 @@
   </dependencies>
   
   <build>
+  
+  <resources>
+    <resource>
+        <directory>src</directory>
+        <targetPath>${project.build.outputDirectory}</targetPath>
+        <includes>
+            <include>persistence-mysql.properties</include>
+        </includes>
+    </resource>
+  </resources>
 
   	
     <sourceDirectory>src</sourceDirectory>
