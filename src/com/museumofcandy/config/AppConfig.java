@@ -30,8 +30,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 @EnableTransactionManagement
 @ComponentScan(basePackages="com.museumofcandy")
 @PropertySources({ 
-	@PropertySource("classpath:/persistence-mysql.properties"),
-	@PropertySource(value = "${System:${classpath}/persistence-mysql.properties}", ignoreResourceNotFound = true)
+	@PropertySource("classpath:/persistence-mysql.properties")
 })
 public class AppConfig implements WebMvcConfigurer {
 	
@@ -65,7 +64,7 @@ public class AppConfig implements WebMvcConfigurer {
 		
 		// set the jdbc driver
 		try {
-			myDataSource.setDriverClass("com.mysql.jdbc.Driver");
+			myDataSource.setDriverClass(env.getProperty("jdbc.driver"));
 		} catch (PropertyVetoException exc) {
 			throw new RuntimeException(exc);
 		}
