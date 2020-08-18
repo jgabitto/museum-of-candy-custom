@@ -30,7 +30,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 @EnableTransactionManagement
 @ComponentScan(basePackages="com.museumofcandy")
 @PropertySources({ 
-	@PropertySource("classpath:/persistence-mysql.properties")
+	@PropertySource("classpath:persistence-mysql.properties")
 })
 public class AppConfig implements WebMvcConfigurer {
 	
